@@ -6,221 +6,237 @@
     <title>Communify - Community Resource Hub</title>
 
     <style>
-        /* ---------- GLOBAL STYLES for entire page ---------- */
+        /* ---------- GLOBAL ---------- */
         body {
             margin: 0;
             font-family: "Segoe UI", sans-serif;
-            background-color: #f8f3ed; /* warm neutral background */
-            color: #3a3a3a;
+            background-color: #f8f2ea; 
+            color: #4b3d34;
         }
+        a { text-decoration: none; }
 
-        a {
-            text-decoration: none; /* remove underline from links */
-        }
-
-        /* ---------- NAVIGATION BAR ---------- */
+        /* ---------- NAVIGATION ---------- */
         nav {
-            background-color: #d8c4a8; /* warm beige tone */
-            padding: 15px 30px;
+            background-color: #e0cbb7;
+            padding: 18px 35px;
             display: flex;
             justify-content: center;
-            gap: 30px;
-            border-bottom: 2px solid #c1ae95;
+            gap: 35px;
+            font-size: 1.1rem;
+            box-shadow: rgba(0,0,0,0.07) 0 2px 8px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
         nav a {
+            color: #4b3d34;
             font-weight: bold;
-            color: #4a3f35;
-            font-size: 1.05rem;
-            transition: 0.25s ease-in-out;
+            transition: 0.25s ease;
         }
-
         nav a:hover {
-            color: #7b5e43; /* hover color */
+            color: #86684c;
         }
 
-        /* ---------- HERO SECTION (big image banner at top) ---------- */
+        /* ---------- HERO SECTION ---------- */
         .hero {
-            background: url("images/forsyth1.jpg") center/cover no-repeat; /* hero image */
-            height: 60vh;                                                  /* 60% of viewport */
+            height: 70vh;
+            background: url("images/forsyth-banner.jpg") center/cover no-repeat;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            position: relative;
         }
 
         .hero-overlay {
-            /* dark transparent layer over the image so text pops */
-            background-color: rgba(0, 0, 0, 0.45);
+            background: rgba(0, 0, 0, 0.45);
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            inset: 0;
         }
 
         .hero-text {
-            /* the actual text on the hero image */
             position: relative;
-            z-index: 2;
+            text-align: center;
             color: white;
+            z-index: 2;
         }
 
         .hero-text h1 {
-            font-size: 3.5rem;
-            letter-spacing: 3px;
+            font-size: 4rem;
+            margin: 0;
+            letter-spacing: 4px;
+            font-weight: 700;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            margin-top: 10px;
+            max-width: 600px;
+        }
+
+        /* ---------- WAVY DIVIDER ---------- */
+        .wave {
+            margin-top: -5px;
         }
 
         /* ---------- INTRO SECTION ---------- */
         .intro {
-            padding: 50px 20px;
+            padding: 60px 25px;
             max-width: 900px;
             margin: auto;
             text-align: center;
         }
 
         .intro h2 {
-            color: #6b563f;
+            font-size: 2.2rem;
+            color: #6e573f;
         }
 
         .intro p {
             line-height: 1.7;
+            margin-top: 15px;
+            font-size: 1.15rem;
         }
 
-        /* ---------- GRID OF RESOURCE CARDS ---------- */
+        /* ---------- FEATURE CARDS ---------- */
         .grid {
-            /* responsive grid layout that wraps automatically */
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            padding: 40px 30px;
-            max-width: 1100px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            padding: 40px;
+            max-width: 1250px;
             margin: auto;
         }
 
         .card {
-            /* each clickable resource box */
-            background-color: #fff6ec;
-            border: 1px solid #d9c9b8;
+            background-color: #fff8f0;
+            border: 1px solid #dcc7b2;
             padding: 25px;
             border-radius: 12px;
             text-align: center;
-            transition: 0.25s ease-in-out;
-            cursor: pointer;
+            transition: 0.3s ease;
+            box-shadow: rgba(0,0,0,0.06) 0 4px 10px;
         }
 
         .card:hover {
-            /* lift card on hover */
-            transform: translateY(-6px);
-            box-shadow: 0px 6px 13px rgba(0,0,0,0.12);
+            transform: translateY(-7px);
+            box-shadow: rgba(0,0,0,0.18) 0 8px 18px;
         }
 
-        /* ---------- NEXT-PAGE BUTTON ---------- */
+        .card h3 {
+            color: #7a5b43;
+            font-size: 1.4rem;
+        }
+
+        /* ---------- NEXT BUTTON ---------- */
         .next-btn {
             display: block;
             width: fit-content;
-            margin: 40px auto;
-            background-color: #cdb79a;
-            padding: 12px 25px;
-            border-radius: 7px;
+            margin: 55px auto;
+            background-color: #d0b599;
+            padding: 14px 28px;
+            border-radius: 8px;
             color: #3a2e25;
             font-weight: 600;
-            transition: 0.25s ease-in-out;
+            transition: 0.25s ease;
+            font-size: 1.1rem;
         }
 
         .next-btn:hover {
-            background-color: #b49f87;
+            background-color: #b99f83;
         }
 
         /* ---------- FOOTER ---------- */
         footer {
-            background-color: #d8c4a8;
-            padding: 22px;
+            background-color: #e0cbb7;
             text-align: center;
-            color: #4a3f35;
+            padding: 25px;
+            margin-top: 70px;
+            color: #4b3d34;
             font-weight: 500;
-            margin-top: 50px;
+            box-shadow: rgba(0,0,0,0.07) 0 -2px 8px;
         }
     </style>
-
 </head>
+
 <body>
 
-    <!-- ===================== NAVIGATION BAR ===================== -->
-    <!-- Links to different pages of your website -->
+    <!-- NAVIGATION BAR -->
     <nav>
         <a href="index.html">Home</a>
         <a href="senior-care.html">Senior Care</a>
-        <a href="food-clothing.html">Food & Clothing Drives</a>
+        <a href="food-clothing.html">Food & Clothing</a>
         <a href="mental-health.html">Mental Health</a>
-        <a href="medical.html">Medical Resources</a>
+        <a href="medical.html">Medical</a>
         <a href="education.html">Education</a>
-        <a href="community-events.html">Community Events</a>
+        <a href="community-events.html">Events</a>
     </nav>
 
-    <!-- ===================== HERO IMAGE BANNER ===================== -->
-    <!-- Big picture with title & slogan -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-overlay"></div>
-
         <div class="hero-text">
             <h1>Communify</h1>
-            <p>Your one-stop hub for community resources, support services, and local opportunities.</p>
+            <p>Empowering Forsyth County through access, support, and community connection.</p>
         </div>
     </section>
 
-    <!-- ===================== INTRO TEXT SECTION ===================== -->
-    <!-- Short explanation about what your website does -->
+    <!-- WAVY SVG DIVIDER -->
+    <img class="wave" src="https://www.svgrepo.com/show/331763/wave-divider.svg" alt="" />
+
+    <!-- INTRO -->
     <section class="intro">
-        <h2>Connecting Forsyth County — One Resource at a Time</h2>
+        <h2>Welcome to Communify</h2>
         <p>
-            Communify is a centralized community resource hub designed to make it easy for Forsyth County 
-            residents to access support services, health programs, education opportunities, senior care, 
-            community events, and more.  
+            Your central hub for trusted community resources across Forsyth County. 
+            Whether you're looking for senior support, medical services, mental health help, education programs, 
+            food assistance, or local events — Communify brings everything together in one easy-to-navigate place.
         </p>
     </section>
 
-    <!-- ===================== RESOURCE CARD GRID ===================== -->
-    <!-- Boxes that link to different categories (like buttons) -->
+    <!-- RESOURCE GRID -->
     <div class="grid">
+
         <a class="card" href="senior-care.html">
             <h3>Senior Care</h3>
-            <p>Elderly services, housing, clinics, and more.</p>
+            <p>Housing options, medical care, activities, and support for seniors.</p>
         </a>
 
         <a class="card" href="food-clothing.html">
             <h3>Food & Clothing</h3>
-            <p>Find drives, pantries, and supply programs.</p>
+            <p>Local food drives, supply centers, clothing assistance & more.</p>
         </a>
 
         <a class="card" href="mental-health.html">
             <h3>Mental Health</h3>
-            <p>Counseling, support groups, and crisis resources.</p>
+            <p>Therapy, crisis lines, youth support, and counseling services.</p>
         </a>
 
         <a class="card" href="medical.html">
             <h3>Medical Resources</h3>
-            <p>Clinics, hospitals, care services, and more.</p>
+            <p>Urgent care, clinics, hospitals, and specialty medical support.</p>
         </a>
 
         <a class="card" href="education.html">
             <h3>Education</h3>
-            <p>Tutoring, programs, classes, and support.</p>
+            <p>Classes, tutoring, enrichment programs, and local learning centers.</p>
         </a>
 
         <a class="card" href="community-events.html">
             <h3>Community Events</h3>
-            <p>Local activities, meetups, and public programs.</p>
+            <p>Festivals, gatherings, volunteer events & public activities.</p>
         </a>
+
     </div>
 
-    <!-- ===================== NEXT PAGE BUTTON ===================== -->
-    <!-- Button that moves user to Senior Care page -->
-    <a href="senior-care.html" class="next-btn">Next Page → Senior Care</a>
+    <!-- NEXT PAGE BUTTON -->
+    <a href="senior-care.html" class="next-btn">Next: Senior Care →</a>
 
-    <!-- ===================== FOOTER ===================== -->
-    <!-- Bottom of website, copyright info -->
+    <!-- FOOTER -->
     <footer>
-        © 2025 Communify | Forsyth County Community Resource Hub
+        © 2025 Communify • Forsyth County Community Resource Hub
     </footer>
 
-</body
+</body>
+</html>
+
